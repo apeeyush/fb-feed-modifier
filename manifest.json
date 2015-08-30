@@ -1,7 +1,7 @@
 {
   "name": "Kill News Feed",
   "version": "1.1.1",
-  "description": "Saves you time by getting rid of Facebook news feed.",
+  "description": "View GRE words with meanings (from Barron 333 high frequency words) instead of distracting posts on Facebook news feed.",
   "content_scripts": [{
       "matches": ["*://*.facebook.com/*"],
       "js": ["jquery.min.js", "kill.js"],
