@@ -1,6 +1,6 @@
 {
-  "name": "Kill News Feed",
-  "version": "1.1.1",
+  "name": "GRE FB News Feed",
+  "version": "1.0.2",
   "description": "View GRE words with meanings (from Barron 333 high frequency words) instead of distracting posts on Facebook news feed.",
   "content_scripts": [{
       "matches": ["*://*.facebook.com/*"],
@@ -8,9 +8,9 @@
       "run_at": "document_start"
   }],
   "icons": {
-    "16": "images/icon-red.png",
-    "48": "images/icon-red.png",
-    "128": "images/icon-red.png"
+    "16": "images/gre-icon.png",
+    "48": "images/gre-icon.png",
+    "128": "images/gre-icon.png"
   },
   "manifest_version": 2
 }
