@@ -13,18 +13,19 @@ function blockAndDisplay() {
         meaning_div.remove();
     }else if (word_div.length == 0) {
         feed.children().remove();
-        for(var i=0; i<4; i++){
-            word_dict = getRandomWord();
+        num_words = 4;
+        word_dict = getRandomWords(num_words);
+        for(var i=0; i<num_words; i++){
             word = $('<h1>')
                 .attr('id', 'word')
-                .text(word_dict['word'])
+                .text(word_dict[i]['word'])
                 .css('font-size', '30px')
                 .css('font-family', "'Helvetica Neue', Helvetica, Arial, 'lucida grande', tahoma, verdana, arial, sans-serif")
                 .css('position', 'relative')
                 .css('top', '35px');
             meaning = $('<h3>')
                 .attr('id', 'meaning')
-                .text(word_dict['meaning'])
+                .text(word_dict[i]['meaning'])
                 .css('font-size', '20px')
                 .css('font-family', "'Helvetica Neue', Helvetica, Arial, 'lucida grande', tahoma, verdana, arial, sans-serif")
                 .css('position', 'relative')
@@ -43,12 +44,33 @@ function blockAndDisplay() {
     // $('#pagelet_canvas_nav_content').remove();
 }
 
-function getRandomWord() {
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
+function range(start, end){
+    var foo = [];
+    for (var i = start; i <= end; i++) {
+        foo.push(i);
+    }
+    return foo;
+}
+
+function getRandomWords(num_words) {
     var words_list = Object.keys(words_json);
-    var word_num = getRandomInt(0,332);
-    var word = words_list[word_num];
-    var meaning = words_json[word];
-    return {word:word, meaning: meaning};
+    var word_nums = shuffleArray(range(0, 332));
+    word_meaning_list = []
+    for(i = 0; i < num_words; ++i){
+        word = words_list[word_nums[i]];
+        word_meaning_list.push({word: word, meaning: words_json[word]});
+    }
+    return word_meaning_list;
 }
 
 window.setInterval(blockAndDisplay, 100);
