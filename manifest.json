@@ -1,6 +1,6 @@
 {
-  "name": "GRE FB News Feed",
-  "version": "1.0.2",
+  "name": "GRE Vocab FB News Feed",
+  "version": "1.0.3",
   "description": "View GRE words with meanings (from Barron 333 high frequency words) instead of distracting posts on Facebook news feed.",
   "content_scripts": [{
       "matches": ["*://*.facebook.com/*"],
