@@ -4,7 +4,7 @@
   "description": "Removes distracting posts from Facebook news feed. You can also view GRE words with meanings (from Barron 333 high frequency words) instead of an empty feed.",
   "content_scripts": [{
       "matches": ["*://*.facebook.com/*"],
-      "js": ["jquery.min.js", "kill.js"],
+      "js": ["js/jquery-3.1.0.min.js", "kill.js"],
       "run_at": "document_start"
   }],
   "permissions": [
