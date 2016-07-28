@@ -5,6 +5,18 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
+function emptyFeed() {
+    var feed = $('[id^=topnews_main_stream], [id^=mostrecent_main_stream], [id^=pagelet_home_stream]');
+    feed.children().remove();
+    $('.ticker_stream').remove();
+    $('.ego_column').remove();
+    // $('#pagelet_games_rhc').remove();
+    // $('#pagelet_trending_tags_and_topics').remove();
+    // $('#pagelet_canvas_nav_content').remove();
+}
+
+
 function blockAndDisplay() {
     var feed = $('[id^=topnews_main_stream], [id^=mostrecent_main_stream], [id^=pagelet_home_stream]');
     var word_div = $('#word');
@@ -83,4 +95,13 @@ function getRandomWords(num_words) {
     return word_meaning_list;
 }
 
-window.setInterval(blockAndDisplay, 100);
+
+chrome.storage.local.get("status", function(item){
+    if(item["status"] === undefined){
+        window.setInterval(blockAndDisplay, 100);
+    }else if(item["status"] == 'GRE'){
+        window.setInterval(blockAndDisplay, 100);
+    }else if(item["status"] == 'empty'){
+        window.setInterval(emptyFeed, 100);
+    }
+});
