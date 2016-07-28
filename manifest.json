@@ -1,7 +1,7 @@
 {
   "name": "FB Feed Modifier",
   "version": "1.1.0",
-  "description": "Removes distracting posts from Facebook news feed. You can also view GRE words with meanings (from Barron 333 high frequency words) instead of an empty feed.",
+  "description": "Removes distracting posts from Facebook news feed. Completely eliminate the feed or replace it with something interesting!",
   "content_scripts": [{
       "matches": ["*://*.facebook.com/*"],
       "js": ["js/jquery-3.1.0.min.js", "kill.js"],
